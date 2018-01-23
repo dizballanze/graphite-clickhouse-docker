@@ -1,0 +1,34 @@
+[common]
+listen = ":9090"
+max-cpu = 1
+
+[clickhouse]
+url = "http://localhost:8123"
+data-table = "graphite"
+tree-table = "graphite_tree"
+reverse-tree-table = ""
+tag-table = ""
+rollup-conf = "/etc/graphite-clickhouse/rollup.xml"
+extra-prefix = ""
+data-timeout = "1m0s"
+tree-timeout = "1m0s"
+
+[tags]
+rules = "/etc/graphite-clickhouse/tag.d/*.conf"
+date = "2016-11-01"
+input-file = ""
+output-file = ""
+
+[carbonlink]
+server = ""
+threads-per-request = 10
+connect-timeout = "50ms"
+query-timeout = "50ms"
+total-timeout = "500ms"
+
+[[logging]]
+logger = "stdout"
+level = "info"
+encoding = "mixed"
+encoding-time = "iso8601"
+encoding-duration = "seconds"
