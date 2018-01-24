@@ -26,8 +26,8 @@ connect-timeout = "50ms"
 query-timeout = "50ms"
 total-timeout = "500ms"
 
-[[logging]]
-logger = "stdout"
+[logging]
+file = "stdout"
 level = "info"
 encoding = "mixed"
 encoding-time = "iso8601"
