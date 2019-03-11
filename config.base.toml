@@ -1,6 +1,7 @@
 [common]
 listen = ":9090"
 max-cpu = 1
+keep-duplicates = true
 
 [clickhouse]
 url = "http://localhost:8123"
@@ -12,19 +13,6 @@ rollup-conf = "/etc/graphite-clickhouse/rollup.xml"
 extra-prefix = ""
 data-timeout = "1m0s"
 tree-timeout = "1m0s"
-
-[tags]
-rules = "/etc/graphite-clickhouse/tag.d/*.conf"
-date = "2016-11-01"
-input-file = ""
-output-file = ""
-
-[carbonlink]
-server = ""
-threads-per-request = 10
-connect-timeout = "50ms"
-query-timeout = "50ms"
-total-timeout = "500ms"
 
 [logging]
 file = "stdout"

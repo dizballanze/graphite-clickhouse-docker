@@ -3,6 +3,7 @@ import os
 import sys
 import re
 import toml
+from collections import OrderedDict
 
 
 ENV = dict(os.environ)
@@ -26,7 +27,7 @@ def convert(typ, value):
 def main():
     with open("/etc/config.toml", "w+") as dest, \
          open("/etc/config.base.toml") as base:
-        parsed_toml = toml.load(base)
+        parsed_toml = toml.load(base, _dict=OrderedDict)
 
         for item, value in ENV.items():
             if not '_' in item:
