@@ -51,22 +51,9 @@ def main():
             if k not in parsed_toml[section]:
                 continue
 
-            key = k
-
-            if '_' in value:
-                array_name, value = value.split('_')
-
-                if array_name not in parsed_toml[section][key]:
-                    parsed_toml[section][key][array_name] = []
-
-                parsed_toml[section][key][array_name].append(
-                    type(parsed_toml[section][key][array_name][0]),
-                    value
-                )
-            else:
-                parsed_toml[section][key] = convert(
-                    type(parsed_toml[section][key]), value
-                )
+            parsed_toml[section][k] = convert(
+                type(parsed_toml[section][k]), value
+            )
 
         toml.dump(parsed_toml, dest)
 
